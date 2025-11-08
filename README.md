@@ -5,7 +5,7 @@
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-4-38bdf8?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com/)
 [![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
 
-![Test Coverage](https://img.shields.io/badge/TEST-Coverage-green?style=social) [![Coverage: Statements](https://img.shields.io/badge/Statements-86.2%25-brightgreen?style=flat-square)](https://github.com/SKRTEEEEEE/profile-next) [![Coverage: Branches](https://img.shields.io/badge/Branches-50%25-red?style=flat-square)](https://github.com/SKRTEEEEEE/profile-next) [![Coverage:Functions](https://img.shields.io/badge/Functions-90%25-brightgreen?style=flat-square)](https://github.com/SKRTEEEEEE/profile-next) [![Coverage: Lines](https://img.shields.io/badge/Lines-92.3%25-brightgreen?style=flat-square)](https://github.com/SKRTEEEEEE/profile-next)
+![Test Coverage](https://img.shields.io/badge/TEST-Coverage-green?style=social) [![Coverage: Statements](https://img.shields.io/badge/Statements-86.2%25-brightgreen?style=flat-square)](https://github.com/SKRTEEEEEE/admin-next) [![Coverage: Branches](https://img.shields.io/badge/Branches-50%25-red?style=flat-square)](https://github.com/SKRTEEEEEE/admin-next) [![Coverage:Functions](https://img.shields.io/badge/Functions-90%25-brightgreen?style=flat-square)](https://github.com/SKRTEEEEEE/admin-next) [![Coverage: Lines](https://img.shields.io/badge/Lines-92.3%25-brightgreen?style=flat-square)](https://github.com/SKRTEEEEEE/admin-next)
 
 > A modern, multilingual, and highly performant portfolio website built with Next.js 16, React 19, TypeScript, and Tailwind CSS. Features Clean Architecture, internationalization (i18n), and stunning particle effects.
 
