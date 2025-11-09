@@ -100,7 +100,7 @@ jobs:
       id: coverage
       if: always()
       run: |
-        SUMMARY_PATH="docs/coverage/coverage-summary.json"
+        SUMMARY_PATH="./docs/coverage/coverage-summary.json"
         if [ -f "$SUMMARY_PATH" ]; then
           STATEMENTS=$(node -e "console.log(require('${SUMMARY_PATH}').total.statements.pct)")
           BRANCHES=$(node -e "console.log(require('${SUMMARY_PATH}').total.branches.pct)")
