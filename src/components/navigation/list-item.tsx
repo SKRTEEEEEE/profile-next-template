@@ -1,13 +1,13 @@
-import { forwardRef, type ReactNode } from "react";
+import { forwardRef, type ReactNode, type ComponentPropsWithoutRef } from "react";
 import { NavigationMenuLink } from "@/components/ui/navigation-menu";
 import { cn } from "@/lib/utils";
-import { Link } from "@/lib/i18n/routing";
+import { Link, type AllPathnamesType } from "@/lib/i18n/routing";
 
-interface ListItemProps {
+type ListItemProps = {
   title: string;
   href: string;
   children: ReactNode;
-}
+} & ComponentPropsWithoutRef<"a">;
 
 export const ListItem = forwardRef<HTMLAnchorElement, ListItemProps>(
   ({ className, title, children, href, ...props }, ref) => {
@@ -30,7 +30,7 @@ export const ListItem = forwardRef<HTMLAnchorElement, ListItemProps>(
               <p className="text-muted-foreground line-clamp-2 text-sm leading-snug">{children}</p>
             </a>
           ) : (
-            <Link ref={ref} href={href} {...commonProps}>
+            <Link ref={ref} href={href as AllPathnamesType} {...commonProps}>
               <div className="text-sm font-medium leading-none">{title}</div>
               <p className="text-muted-foreground line-clamp-2 text-sm leading-snug">{children}</p>
             </Link>
