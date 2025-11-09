@@ -75,11 +75,12 @@ jobs:
     - name: Wait for server to be ready
       run: |
         npx wait-on http://localhost:3000 --timeout 90000
-        npx wait-on http://localhost:3000/es --timeout 30000
-        npx wait-on http://localhost:3000/es/portafolio --timeout 30000
-        npx wait-on http://localhost:3000/es/proyectos --timeout 30000
-        npx wait-on http://localhost:3000/es/info --timeout 30000
-        npx wait-on http://localhost:3000/es/estudios --timeout 30000
+        for LOCALE in en es ca de; do
+          npx wait-on "http://localhost:3000/$LOCALE" --timeout 30000
+        done
+        for LOCALE in en es ca de; do
+          npx wait-on "http://localhost:3000/$LOCALE/gradients" --timeout 30000 || true
+        done
         sleep 5
         curl -f http://localhost:3000/es || exit 1
 
