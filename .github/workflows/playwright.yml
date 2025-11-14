@@ -54,10 +54,13 @@ jobs:
     needs: unit-tests
     steps:
     - uses: actions/checkout@v5
+      with:
+            submodules: recursive
     - name: Reset integration/e2e artifacts 🧹
       run: |
         rm -rf docs/test-results docs/coverage docs/coverage-reports .nyc_output || true
         mkdir -p docs/test-results docs/coverage docs/coverage-reports
+      
     - uses: actions/setup-node@v6
       with:
         node-version: lts/*
