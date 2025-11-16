@@ -77,9 +77,9 @@ jobs:
       run: |
         echo "⏳ Waiting for Next.js server..."
         
-        # Función para verificar el servidor
+        # Función para verificar el servidor (SIN -f para aceptar redirects)
         check_server() {
-          curl -f -s -o /dev/null -w "%{http_code}" "$1" 2>/dev/null
+          curl -s -o /dev/null -w "%{http_code}" "$1" 2>/dev/null
         }
         
         # Esperar a que el servidor base esté listo
@@ -87,7 +87,7 @@ jobs:
         for i in $(seq 1 $MAX_ATTEMPTS); do
           STATUS=$(check_server "http://localhost:3000")
           
-          if [ "$STATUS" = "200" ] || [ "$STATUS" = "307" ] || [ "$STATUS" = "404" ]; then
+          if [ "$STATUS" = "200" ] || [ "$STATUS" = "307" ] || [ "$STATUS" = "308" ] || [ "$STATUS" = "404" ]; then
             echo "✅ Server ready (status: $STATUS)"
             break
           fi
@@ -104,10 +104,11 @@ jobs:
         # Verificar locales si existen
         for LOCALE in en es ca de; do
           STATUS=$(check_server "http://localhost:3000/$LOCALE")
-          echo "Locale $LOCALE: $STATUS"
+          echo "✅ Locale $LOCALE: $STATUS"
         done
         
-        sleep 5
+        echo "🎉 Server fully ready!"
+        sleep 3
 
     - name: Run Playwright tests
       run: npm run test:coverage
