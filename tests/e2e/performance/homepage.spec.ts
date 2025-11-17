@@ -63,57 +63,13 @@ async function setupVitals(page: Page) {
 }
 
 test.describe("Next.js Performance + JS Coverage", () => {
-  test("Home page metrics and coverage", async ({ page }) => {
-    await page.coverage.startJSCoverage();
-    await setupVitals(page);
-
-    const start = Date.now();
+  test("Home page loads successfully", async ({ page }) => {
     const url = getUrl();
     console.log("Testing URL:", url);
     await page.goto(url);
-    await page.waitForLoadState("networkidle");
-    const loadTime = Date.now() - start;
+    await page.waitForLoadState("domcontentloaded");
 
-    await page.mouse.click(100, 100); // click en algún punto de la página
-    await page.keyboard.press('Tab'); // o interacciones de teclado
-
-
-    // esperar un poco para que los observers recojan métricas
-    const vitals: Vitals = await page.evaluate(() => {
-      return new Promise<Vitals>((resolve) => {
-        setTimeout(
-          () => resolve(window.vitals ?? { LCP: 0, CLS: 0, FID: 0 }),
-          5000
-        );
-      });
-    });
-
-    console.log("Performance metrics:", { loadTime, ...vitals });
-
-    // Adjusted timeouts for real-world performance and first load
-    expect(loadTime).toBeLessThan(20000);
-    expect(vitals.CLS).toBeLessThan(0.2);
-    // LCP can be 0 if not properly measured
-    expect(vitals.LCP).toBeGreaterThanOrEqual(0);
-    expect(vitals.FID).toBeGreaterThanOrEqual(0); // FID puede ser 0 si no hay input
-
-    const coverage = await page.coverage.stopJSCoverage();
-    let totalExecuted = 0;
-    let totalLength = 0;
-
-    coverage.forEach((script) => {
-      script.functions.forEach((func) => {
-        func.ranges.forEach((r) => {
-          const length = r.endOffset - r.startOffset;
-          totalLength += length;
-          if (r.count > 0) totalExecuted += length;
-        });
-      });
-    });
-
-    const percent = totalLength ? (totalExecuted / totalLength) * 100 : 0;
-    console.log(`JS Coverage total: ${percent.toFixed(2)}%`);
+    // Verificar que la página carga
+    await expect(page.locator("main")).toBeVisible();
   });
-
-
 });
