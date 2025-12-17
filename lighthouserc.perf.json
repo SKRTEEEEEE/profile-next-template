@@ -9,9 +9,6 @@
         "http://localhost:3000/de"
       ],
       "numberOfRuns": 1,
-      "startServerCommand": "npm run start",
-      "startServerReadyPattern": "ready on.*3000",
-      "startServerReadyTimeout": 30000,
       "chromeFlags": "--headless"
     },
     "assert": {

@@ -1,24 +1,24 @@
 echo "🔍 Running pre-push checks..."
 
 # 1. Run Playwright tests with coverage
-echo "\n🎭 Running Playwright tests with NYC coverage..."
+echo "🎭 Running Playwright tests with NYC coverage..."
 npm run pw:cov || {
   echo "❌ Playwright tests failed!"
   exit 1
 }
 
 # 2. Run Lighthouse CI
-echo "\n🏠 Running Lighthouse CI performance audit..."
+echo "🏠 Running Lighthouse CI performance audit..."
 npm run perf || {
   echo "❌ Lighthouse CI failed!"
   exit 1
 }
 
 # 3. Check performance thresholds
-echo "\n📊 Checking performance thresholds..."
+echo "📊 Checking performance thresholds..."
 npm run perf:check || {
   echo "❌ Performance thresholds not met!"
   exit 1
 }
 
-echo "\n✅ All pre-push checks passed!"
+echo "✅ All pre-push checks passed!"
