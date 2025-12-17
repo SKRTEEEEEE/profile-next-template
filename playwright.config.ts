@@ -90,7 +90,7 @@ export default defineConfig({
   // Reporter configuration
   reporter: [
     ['list'],
-    ['html', { outputFolder: 'docs/test-results/html-report' }],
+    ['html', { outputFolder: 'docs/test-results/html-report', open: 'never' }],
     ['json', { outputFile: 'docs/test-results/test-results.json' }],
   ],
 });
