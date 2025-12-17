@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "label": "Coverage (Branches)",
-  "message": "25.00%",
-  "color": "red",
+  "message": "67.85%",
+  "color": "yellow",
   "style": "flat-square"
 }
