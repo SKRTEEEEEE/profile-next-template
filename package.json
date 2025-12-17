@@ -21,7 +21,7 @@
     "pw:integration": "playwright test --project=pw:integration",
     "pw:e2e": "playwright test --project=pw:e2e",
     "pw:performance": "playwright test --project=pw:performance",
-    "pw:cov": "nyc playwright test",
+    "pw:cov": "nyc --silent playwright test",
     "// === COMBINADOS ===": "",
     "test:cov": "npm run vitest:cov && npm run pw:cov",
     "test:all": "npm run vitest:run && npm run pw",
