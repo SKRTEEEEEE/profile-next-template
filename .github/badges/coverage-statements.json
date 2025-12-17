@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "label": "Coverage (Statements)",
-  "message": "44.28%",
-  "color": "orange",
+  "message": "90.44%",
+  "color": "brightgreen",
   "style": "flat-square"
 }
