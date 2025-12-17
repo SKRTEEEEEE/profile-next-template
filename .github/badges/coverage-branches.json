@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "label": "Coverage (Branches)",
+  "label": "branches",
   "message": "67.85%",
   "color": "yellow",
   "style": "flat-square"

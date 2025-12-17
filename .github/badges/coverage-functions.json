@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "label": "Coverage (Functions)",
+  "label": "functions",
   "message": "91.28%",
   "color": "brightgreen",
   "style": "flat-square"
