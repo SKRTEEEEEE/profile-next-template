@@ -13,6 +13,16 @@ export default defineConfig({
     timeout: 10000, // Unified timeout
   },
   
+  // Automatic server management
+  webServer: {
+    command: 'npm run start',
+    url: 'http://localhost:3000',
+    reuseExistingServer: true, // Reuse dev server if running
+    timeout: 120000, // 2min to start
+    stdout: 'ignore', // Don't pollute logs
+    stderr: 'pipe', // Show only errors
+  },
+  
   // Configure projects for different test types
   projects: [
     {

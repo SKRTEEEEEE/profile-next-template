@@ -68,69 +68,20 @@ jobs:
       continue-on-error: false
 
     # ============================================================
-    # PLAYWRIGHT - Tests con servidor
+    # PLAYWRIGHT - Tests con servidor (gestionado por webServer)
     # ============================================================
     - name: Build Next.js 📦
       run: npm run build
       env:
         NODE_ENV: production
 
-    - name: Start Next.js server 🚀
-      run: |
-        npm run start &
-        echo $! > .next-server.pid
-      env:
-        NODE_ENV: production
-        NEXT_PUBLIC_API_MOCKING: "enabled"
-        PORT: 3000
-    
-    - name: Wait for server ⏳
-      run: |
-        echo "⏳ Waiting for Next.js server..."
-        
-        check_server() {
-          curl -s -o /dev/null -w "%{http_code}" "$1" 2>/dev/null
-        }
-        
-        MAX_ATTEMPTS=45
-        for i in $(seq 1 $MAX_ATTEMPTS); do
-          STATUS=$(check_server "http://localhost:3000")
-          
-          if [ "$STATUS" = "200" ] || [ "$STATUS" = "307" ] || [ "$STATUS" = "308" ] || [ "$STATUS" = "404" ]; then
-            echo "✅ Server ready (status: $STATUS)"
-            break
-          fi
-          
-          echo "⏳ Attempt $i/$MAX_ATTEMPTS (status: $STATUS)"
-          sleep 2
-          
-          if [ $i -eq $MAX_ATTEMPTS ]; then
-            echo "❌ Server failed to start"
-            exit 1
-          fi
-        done
-        
-        for LOCALE in en es ca de; do
-          STATUS=$(check_server "http://localhost:3000/$LOCALE")
-          echo "✅ Locale $LOCALE: $STATUS"
-        done
-        
-        echo "🎉 Server fully ready!"
-        sleep 3
-
     - name: Run Playwright tests with NYC coverage 🎭
       run: npm run pw:cov
       continue-on-error: false
       env:
         CI: true
-
-    - name: Stop Next.js server ⛔
-      if: always()
-      run: |
-        if [ -f .next-server.pid ]; then
-          kill $(cat .next-server.pid) || true
-          rm -f .next-server.pid
-        fi
+        NODE_ENV: production
+        NEXT_PUBLIC_API_MOCKING: "enabled"
 
     # ============================================================
     # COVERAGE PARSING - Vitest + Playwright
