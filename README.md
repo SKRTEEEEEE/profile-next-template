@@ -22,16 +22,16 @@
 
 
 ![Vitest Coverage](https://img.shields.io/badge/⚡Vitest-coverage-orange?style=social)
-![Vitest Statements](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/USER/REPO/main/.github/badges/vitest-statements.json)
-![Vitest Branches](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/USER/REPO/main/.github/badges/vitest-branches.json)
-![Vitest Functions](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/USER/REPO/main/.github/badges/vitest-functions.json)
-![Vitest Lines](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/USER/REPO/main/.github/badges/vitest-lines.json)
+[![Vitest Statements](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/SKRTEEEEEE/admin-next/main/.github/badges/vitest-statements.json)](.github/badges/vitest-statements.json)
+[![Vitest Branches](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/SKRTEEEEEE/admin-next/main/.github/badges/vitest-branches.json)](.github/badges/vitest-branches.json)
+[![Vitest Functions](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/SKRTEEEEEE/admin-next/main/.github/badges/vitest-functions.json)](.github/badges/vitest-functions.json)
+[![Vitest Lines](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/SKRTEEEEEE/admin-next/main/.github/badges/vitest-lines.json)](.github/badges/vitest-lines.json)
 
 ![Playwright Coverage](https://img.shields.io/badge/🎭Playwright-coverage-orange?style=social)
-![Playwright Statements](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/USER/REPO/main/.github/badges/playwright-statements.json)
-![Playwright Branches](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/USER/REPO/main/.github/badges/playwright-branches.json)
-![Playwright Functions](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/USER/REPO/main/.github/badges/playwright-functions.json)
-![Playwright Lines](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/USER/REPO/main/.github/badges/playwright-lines.json)
+[![Playwright Statements](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/SKRTEEEEEE/admin-next/main/.github/badges/playwright-statements.json)](.github/badges/playwright-statements.json)
+[![Playwright Branches](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/SKRTEEEEEE/admin-next/main/.github/badges/playwright-branches.json)](.github/badges/playwright-branches.json)
+[![Playwright Functions](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/SKRTEEEEEE/admin-next/main/.github/badges/playwright-functions.json)](.github/badges/playwright-functions.json)
+[![Playwright Lines](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/SKRTEEEEEE/admin-next/main/.github/badges/playwright-lines.json)](.github/badges/playwright-lines.json)
 
 </div>
 
@@ -99,60 +99,43 @@ npm run dev
 
 ## 📦 Usage
 
-### Scripts Principales
-| Comando | Descripción |
-|---------|-------------|
-| `npm run dev` | Dev server con Turbopack (puerto 3000, usa `PORT=3003` si convives con otros frontends) |
-| `npm run build` | Compila optimizado con Turbopack |
-| `npm run start` | Sirve la build (necesario para tests con servidor) |
-| `npm run lint` | ESLint 9 + config Next.js |
-| **Testing** | |
-| `npm run test:unit` | Tests unitarios + API (sin servidor) |
-| `npm run test:server` | Tests component/pages/integration (con servidor) |
-| `npm run test:e2e` | Tests E2E + E2E Performance (con servidor) |
-| `npm run test:perf` | Tests Performance puros - Lighthouse wrapper (con servidor) |
-| `npm run test:all` | Ejecuta todos los tests (unit + server + e2e + perf) |
-| **Performance** | |
-| `npm run perf` | Lighthouse CI completo (build + start + audit de 5 páginas) |
-| `npm run perf:check` | Validar thresholds de performance (70/80/80/80) + **actualizar badges** |
-| `npm run lh:home` | Lighthouse audit manual de la home |
+### Quick Start
+```bash
+npm run dev              # Development server (port 3000)
+npm run build            # Production build
+npm run start            # Serve production build
+```
 
-### Flujo de Test Recomendado
-1. **Pre-commit (automático):**
-   - `npm run lint` - Validaciones de código
-   - `npx tsc --noEmit` - Type checking
-   - `npm run test:coverage:unit` - Coverage mínimo 60%
-   - `npm run perf:check` - Thresholds de performance (70/80/80/80) + actualizar badges
+### Testing & Quality
+```bash
+npm run vitest           # Fast unit tests (watch mode)
+npm run vitest:cov       # Unit tests with coverage
+npm run pw:cov           # Playwright integration tests
+npm run lint             # ESLint validation
+```
 
-2. **Testing local:**
-   - `npm run test:unit` - Tests rápidos sin servidor
-   - `npm run build && npm run start` en una terminal
-   - `npx wait-on http://localhost:3000 && npm run test:server` en otra terminal
-   - `npx wait-on http://localhost:3000 && npm run test:e2e` - E2E + E2E Performance
+### Performance Audits
+```bash
+npm run perf             # Full Lighthouse CI audit
+npm run perf:check       # Validate thresholds + update badges
+```
 
-3. **Performance audit completo:**
-   - `npm run perf` - Lighthouse CI (build + start + audit automático)
-   - `npm run perf:check` - Validar thresholds + actualizar badges automáticamente
+### Badges System
 
-### Sistema de Badges de Lighthouse
+**Coverage & Performance badges auto-update** on `main` push via GitHub Actions:
 
-Los badges de Lighthouse en el README se actualizan **automáticamente** al ejecutar `npm run perf:check`:
+- **Coverage**: Combined average (Vitest + Playwright) in `.github/badges/`
+- **Lighthouse**: Performance/A11y/SEO/BP metrics in `docs/badges/`
+- **Colors**: 🟢 ≥80% | 🟡 60-79% | 🟠 40-59% | 🔴 <40%
 
-- 📊 **Performance** (`docs/badges/perf.json`) - Promedio de performance de todas las páginas auditadas
-- ♿ **Accessibility** (`docs/badges/acc.json`) - Promedio de accesibilidad
-- 🔍 **SEO** (`docs/badges/seo.json`) - Promedio de SEO
-- ✅ **Best Practices** (`docs/badges/bp.json`) - Promedio de mejores prácticas
+### Recommended Workflow
 
-**Colores de badges:**
-- 🟢 `brightgreen` (90-100%) - Excelente
-- 🟢 `green` (80-89%) - Bueno
-- 🟡 `yellow` (60-79%) - Aceptable
-- 🟠 `orange` (40-59%) - Necesita mejoras
-- 🔴 `red` (<40%) - Crítico
+- **Local dev**: `npm run dev` + `npm run vitest` (watch mode)
+- **Pre-commit** (automatic): lint + typecheck + vitest coverage
+- **Pre-push** (automatic): playwright tests + performance checks
+- **CI/CD**: Full test suite + badge updates on main
 
-**Nota:** Para generar reportes de Lighthouse primero debes ejecutar `npm run perf`. Si no existen reportes, `perf:check` generará badges en estado "pending".
-
-> 📚 **Documentación completa de testing:** Ver [docs/TEST.md](docs/TEST.md) para guía detallada de todos los tipos de tests, configuración, thresholds y workflows.
+> 📚 **Full docs**: See [tests/README.claude.md](tests/README.claude.md) for complete testing guide
 
 ## 📁 Estructura del Proyecto
 ```
