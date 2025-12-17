@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "label": "Vitest (Lines)",
+  "label": "lines",
   "message": "100%",
   "color": "brightgreen",
   "style": "flat-square"
