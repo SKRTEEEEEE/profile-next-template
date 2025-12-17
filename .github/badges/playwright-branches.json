@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "label": "Coverage (Lines)",
-  "message": "46.77%",
+  "label": "Playwright (Branches)",
+  "message": "50%",
   "color": "orange",
   "style": "flat-square"
 }
