@@ -1,4 +1,8 @@
 {
+  "gradients": {
+    "title": "Gradients Library",
+    "description": "Explore the collection of gradients available for the admin design system."
+  },
   "admin": {
     "hero": {
       "badge": "Admin template",

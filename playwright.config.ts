@@ -16,54 +16,46 @@ export default defineConfig({
   // Configure projects for different test types
   projects: [
     {
-      name: 'unit',
-      testMatch: /tests\/unit\/.*\.spec\.ts/,
+      name: 'pw:unit',
+      testMatch: /tests\/pw\/unit\/.*\.spec\.ts/,
       use: {
         ...devices['Desktop Chrome'],
       },
     },
     {
-      name: 'component',
-      testMatch: /tests\/component\/.*\.spec\.ts/,
+      name: 'pw:api',
+      testMatch: /tests\/pw\/api\/.*\.spec\.ts/,
       use: {
         ...devices['Desktop Chrome'],
-        baseURL: 'http://localhost:3000',
       },
     },
     {
-      name: 'pages',
-      testMatch: /tests\/pages\/.*\.spec\.ts/,
-      use: {
-        ...devices['Desktop Chrome'],
-        baseURL: 'http://localhost:3000',
-      },
-    },
-    {
-      name: 'integration',
-      testMatch: /tests\/integration\/.*\.spec\.ts/,
+      name: 'pw:component',
+      testMatch: /tests\/pw\/component\/.*\.spec\.ts/,
       use: {
         ...devices['Desktop Chrome'],
         baseURL: 'http://localhost:3000',
       },
     },
     {
-      name: 'api',
-      testMatch: /tests\/api\/.*\.spec\.ts/,
-      use: {
-        ...devices['Desktop Chrome'],
-      },
-    },
-    {
-      name: 'e2e',
-      testMatch: /tests\/e2e\/.*\.spec\.ts/,
+      name: 'pw:integration',
+      testMatch: /tests\/pw\/integration\/.*\.spec\.ts/,
       use: {
         ...devices['Desktop Chrome'],
         baseURL: 'http://localhost:3000',
       },
     },
     {
-      name: 'performance',
-      testMatch: /tests\/performance\/.*\.spec\.ts/,
+      name: 'pw:e2e',
+      testMatch: /tests\/pw\/e2e\/.*\.spec\.ts/,
+      use: {
+        ...devices['Desktop Chrome'],
+        baseURL: 'http://localhost:3000',
+      },
+    },
+    {
+      name: 'pw:performance',
+      testMatch: /tests\/pw\/performance\/.*\.spec\.ts/,
       use: {
         ...devices['Desktop Chrome'],
         baseURL: 'http://localhost:3000',

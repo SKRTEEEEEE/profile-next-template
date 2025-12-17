@@ -1,4 +1,8 @@
 {
+  "gradients": {
+    "title": "Farbverlaufsbibliothek",
+    "description": "Erkunden Sie die Sammlung von Farbverläufen für das Admin-Designsystem."
+  },
   "admin": {
     "hero": {
       "badge": "Admin-Vorlage",

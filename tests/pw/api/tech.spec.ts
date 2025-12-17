@@ -1,6 +1,6 @@
 import { test, expect } from "@playwright/test";
-import { GET as getStatus } from "../../src/app/api/admin/status/route";
-import { adminSurfaces } from "../../src/core/admin/surfaces";
+import { GET as getStatus } from "../../../src/app/api/admin/status/route";
+import { adminSurfaces } from "../../../src/core/admin/surfaces";
 
 test.describe("Admin status API", () => {
   test("returns the list of micro frontends", async () => {

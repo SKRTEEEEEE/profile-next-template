@@ -1,4 +1,8 @@
 {
+  "gradients": {
+    "title": "Biblioteca de Gradientes",
+    "description": "Explora la colección de gradientes disponibles para el sistema de diseño admin."
+  },
   "admin": {
     "hero": {
       "badge": "Plantilla admin",

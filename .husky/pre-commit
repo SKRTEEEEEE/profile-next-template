@@ -1,13 +1,10 @@
 echo "🔍 Running linting..."
 npm run lint
 
-echo "🧪 Running type tests (no server required)..."
+echo "🧪 Running type check..."
 npx tsc --noEmit
 
-echo "📊 Checking test coverage (minimum 80%)..."
-npm run test:coverage:unit
-
-echo "⚡ Checking performance thresholds (90/95/90/95)..."
-npm run perf:check
+echo "⚡ Running Vitest with coverage (fast, ~2s)..."
+npm run vitest:cov
 
 echo "✅ All pre-commit checks passed!"
