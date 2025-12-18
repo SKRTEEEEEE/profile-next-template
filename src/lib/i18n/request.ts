@@ -14,7 +14,8 @@ export default getRequestConfig(async ({requestLocale}) => {
     locale,
     messages: {
       ...(await import(`../../../content/data/${locale}/admin.json`)).default,
-      ...(await import(`../../../content/data/${locale}/common.json`)).default,
+      ...(await import(`../../../content/data/${locale}/log-ui.json`)).default,
+      ...(await import(`../../../log-ui-ts/i18n/${locale}/common.json`)).default,
     }
   };
 });
