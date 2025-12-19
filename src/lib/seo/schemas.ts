@@ -127,6 +127,8 @@ export function generateProjectSchema({
   url,
   dateCreated,
   programmingLanguages,
+  // locale reserved for future i18n implementation
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   locale = 'es',
 }: {
   name: string;

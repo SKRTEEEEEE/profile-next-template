@@ -23,7 +23,7 @@
     "pw:performance": "playwright test --project=pw:performance",
     "pw:cov": "nyc --silent playwright test",
     "// === COMBINADOS ===": "",
-    "test:check": "npm run vitest:cov && npm run pw:cov && npm run perf && npm run perf:check",   
+    "test:check": "npm run vitest:cov && npm run pw:cov && npm run perf && npm run perf:check",
     "test:cov": "npm run vitest:cov && npm run pw:cov",
     "test:all": "npm run vitest:run && npm run pw",
     "// === LEGACY (deprecar gradualmente) ===": "",
@@ -73,7 +73,7 @@
   "devDependencies": {
     "@commitlint/cli": "^20.1.0",
     "@commitlint/config-conventional": "^20.0.0",
-    "@eslint/eslintrc": "^3",
+    "@eslint/eslintrc": "^3.3.3",
     "@lhci/cli": "^0.15.1",
     "@playwright/test": "^1.56.1",
     "@tailwindcss/postcss": "^4",
