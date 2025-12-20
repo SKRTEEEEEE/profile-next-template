@@ -32,8 +32,7 @@ export class ProjectApiRepository
   }
 
   async readById(id: string): Promise<ResFlow<Project>> {
-    const endpointResult = this.getDynamicEndpointModule("readById", id);
-    const endpoint = Array.isArray(endpointResult) ? endpointResult[0] : (endpointResult || `${this.baseUrl}/project/${id}`);
+    const endpoint = this.getEndpointModule("readById").replace(":id", id) || `${this.baseUrl}/project/${id}`;
     const response = await fetch(endpoint, {
       method: "GET",
       headers: { "Content-type": "application/json" },
